@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Post} from "../types";
+import {RecipesService} from "../recipes.service";
 
 @Component({
   selector: 'app-recipe',
@@ -11,7 +12,9 @@ export class RecipeComponent implements OnInit, OnDestroy {
   ingredients:string[] = ["lemon", "water", "sugar"];
   posts: Post[] = [];
 
-  constructor() { }
+  constructor(private service: RecipesService) {
+
+  }
 
   onHide(post:Post):void{
     post.show = false;
@@ -19,32 +22,10 @@ export class RecipeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.name = this.name + "!!";
-    this.posts = [
-      {
-        title: "t0",
-        id: 0,
-        comments: ["great", "ok"],
-        show:true
-      },
-      {
-        title: "t1",
-        id: 1,
-        comments: ["great", "ok"],
-        show:true
-      },
-      {
-        title: "t2",
-        id: 2,
-        comments: ["great", "ok"],
-        show:true
-      },
-      {
-        title: "t3",
-        id: 3,
-        comments: ["great", "ok"],
-        show:true
-      }
-      ];
+    this.posts = this.service.getAll();
+    this.service.getUsingService().subscribe(results=>{
+      console.log(results);
+    });
   }
 
   onClick(p:Post):void{

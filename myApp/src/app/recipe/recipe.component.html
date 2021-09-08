@@ -12,8 +12,10 @@
 <textarea>{{getPosts()}}</textarea>
 
 
-<ul>
+
+<ul fxLayout="row-reverse" fxLayoutAlign="center center">
   <li
+    fxFlexOffset="10%"
     *ngFor="let post of posts"
     [ngStyle]="{'font-size': post.id <= 2 ? '24px' : '16px' }"
     >
