@@ -10,6 +10,8 @@ import { RecipecommentComponent } from './recipe/recipecomment/recipecomment.com
 import { HistoryComponent } from './history/history.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CreateformComponent } from './recipe/createform/createform.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RecipeComponent,
     RecipecommentComponent,
     HistoryComponent,
-    NavBarComponent
+    NavBarComponent,
+    CreateformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

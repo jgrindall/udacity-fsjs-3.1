@@ -34,6 +34,10 @@ export class RecipeComponent implements OnInit, OnDestroy {
     p.comments.push("WHAT");
   }
 
+  onSubmit(a:{title:string, body:string}):void{
+    debugger;
+  }
+
   getPosts():string{
     return JSON.stringify(this.posts);
   }
